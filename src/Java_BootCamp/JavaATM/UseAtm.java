@@ -1,11 +1,12 @@
-package Java_BootCamp;
+package Java_BootCamp.JavaATM;
 import java.util.Scanner;
-public class Atm {
+public class UseAtm {
     static void main(String[] args) {
             Scanner sc = new Scanner(System.in);
             boolean running = true ;
             int bal = 5000;
-            int choice = 0 ;
+            int choice = 0;
+            Atm a =new Atm();
             do{
                 System.out.println("Choose an Option");
                 System.out.println("1. Check Balance");
@@ -16,19 +17,17 @@ public class Atm {
                 choice = sc.nextInt();
                 switch(choice){
                     case 1 :
-                        System.out.println("Balance is : "+bal);
+                        a.getBal();
                         break;
                     case 2 :
                         System.out.println("Enter deposit amount : ");
                         int amount = sc.nextInt();
-                        System.out.println("Deposited "+amount);
-                        System.out.println("Total Amount : "+(amount+bal));
+                        a.deposit(amount);
                         break;
                     case 3 :
                         System.out.println("Enter withdraw amount : ");
                         int k = sc.nextInt();
-                        System.out.println("Withdraw amount is : "+k);
-                        System.out.println("Total balance is : "+(bal-k));
+                        a.deposit(k);
                         break;
                     case 4 :
                         System.out.println("Thank You!");
@@ -36,7 +35,6 @@ public class Atm {
                     default:
                         System.out.println("Try again!!Please Choose correct option.");
                 }
-
             }while(choice!=4);
         }
     }
