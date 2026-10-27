@@ -9,14 +9,19 @@ public class Atm {
     public void deposit(double amount){
         System.out.println("Deposited Successfully!");
         System.out.println("Deposited "+amount);
-        System.out.println("Total Amount : "+(amount+bal));
+        bal=amount+bal;
+        System.out.println("Total Amount : "+(bal));
     }
     public void withdraw(double amount){
-        if(bal<amount) {
+        if(amount<bal) {
             System.out.println("Withdraw Successfully!");
             System.out.println("Withdraw amount is : " + amount);
-            System.out.println("Total balance is : " + (bal - amount));
+            bal=bal - amount;
+            System.out.println("Total balance is : " + (bal));
         }else
             System.out.println("Insufficient Balance..!!");
     }
+//    public void miniStatement(int choice){
+//
+//    }
 }

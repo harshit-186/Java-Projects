@@ -3,8 +3,6 @@ import java.util.Scanner;
 public class UseAtm {
     static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        boolean running = true;
-        int bal = 5000;
         int choice = 0;
         int pin = 7890;
         int x = 0;
@@ -12,6 +10,7 @@ public class UseAtm {
             System.out.println("Enter Correct PIN to Access : ");
             int cpin = sc.nextInt();
             if (pin == cpin) {
+//                int [] arr = new int[5];
                 Atm a = new Atm();
                 do {
                     System.out.println("Choose an Option");
@@ -21,6 +20,15 @@ public class UseAtm {
                     System.out.println("4. Exit");
                     System.out.println("Select an Option : ");
                     choice = sc.nextInt();
+//                    for(int j = 0 ; j <5 ; j++ ) {
+//                        if (j == 4) {
+//                            for (int k = 0; k < 5; k++) {
+//                                arr[k] = arr[j-1];
+//                            }
+//                        }else {
+//                            arr[j]=choice;
+//                        }
+//                    }
                     switch (choice) {
                         case 1 -> {
                             a.getBal();
@@ -38,6 +46,11 @@ public class UseAtm {
                         case 4 -> {
                             System.out.println("Thank You!");
                         }
+//                        case 5 ->{
+//                            for(int z:arr){
+//                                System.out.println(z);
+//                            }
+//                        }
                         default -> System.out.println("Try again!!Please Choose correct option.");
                     }
                 } while (choice != 4);
