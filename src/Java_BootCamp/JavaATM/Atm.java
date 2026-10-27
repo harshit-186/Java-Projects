@@ -6,12 +6,17 @@ public class Atm {
         System.out.println("Balance is : "+bal);
         return bal;
     }
-    public void deposit(int amount){
+    public void deposit(double amount){
+        System.out.println("Deposited Successfully!");
         System.out.println("Deposited "+amount);
         System.out.println("Total Amount : "+(amount+bal));
     }
-    public void withdraw(int amount){
-        System.out.println("Withdraw amount is : "+amount);
-        System.out.println("Total balance is : "+(bal-amount));
+    public void withdraw(double amount){
+        if(bal<amount) {
+            System.out.println("Withdraw Successfully!");
+            System.out.println("Withdraw amount is : " + amount);
+            System.out.println("Total balance is : " + (bal - amount));
+        }else
+            System.out.println("Insufficient Balance..!!");
     }
 }
