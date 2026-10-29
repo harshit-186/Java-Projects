@@ -13,6 +13,15 @@ public class Student {
         this.courseNames = new TreeSet<>();
         this.name = name;
     }
+    public boolean enrollCourse(String course){
+        return courseNames.add(course);
+    }
+    public boolean removeCourse(String course){
+        return courseNames.remove(course);
+    }
+    public Set<String> getCourseNames(){
+        return courseNames;
+    }
 
     @Override
     public String toString() {
