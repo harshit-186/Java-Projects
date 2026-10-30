@@ -1,11 +1,15 @@
 package StudentManagementSystem;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class StudentService {
     private List<Student> stList;
     private Map<Integer,Student> stMap;
+
+    public StudentService(){
+       stList=new ArrayList<>();
+       stMap=new HashMap<>();
+    }
 
     public void addStudent(int roll , String name){
         if(stMap.containsKey(roll)){
@@ -18,6 +22,19 @@ public class StudentService {
         System.out.println("Student with roll : "+roll+" added successfully");
     }
 
+    public void dropCourse(int roll , String course){
+        Student s = stMap.get(roll);
+        if(s==null){
+            System.out.println("Student roll : "+roll+" not Found!");
+            return;
+        }
+        if( s.removeCourse(course)){
+            System.out.println("Student roll : "+roll+" removed Successfully from "+course);
+        }else{
+            System.out.println("Student roll : "+roll+" not enrolled in "+course);
+        }
+
+    }
     public void removeStudent(int roll){
         Student s = stMap.get(roll);
         if(s==null){
@@ -59,5 +76,18 @@ public class StudentService {
        else{
            System.out.println("Student roll : "+roll+" already enrolled in "+course);
        }
+    }
+    public void getCourses(int roll){
+        Student s = stMap.get(roll);
+        if(s==null){
+            System.out.println("Stdent roll : "+roll+" not found!");
+            return;
+        }
+        Set<String>courseNames = s.getCourseNames();
+        if(courseNames.isEmpty()){
+            System.out.println("Student roll : "+roll+" not Enrolled in any course");
+        }else {
+            System.out.println(courseNames);
+        }
     }
 }
